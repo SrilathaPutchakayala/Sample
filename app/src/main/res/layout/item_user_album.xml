@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.tm.model.UserAlbum" />
+        <variable
+            name="userAlbum"
+            type="com.tm.model.UserAlbum" />
+
+        <variable
+            name="listener"
+            type="com.tm.ui.handlers.OnModelClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background='@color/colorBlue'
+        android:paddingBottom="0dp"
+        android:paddingTop="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="start"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                app:imageUrl="@{userAlbum.thumbnailUrl}"
+                android:onClick="@{() -> listener.onClick(userAlbum)}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/medium_textsize"
+                android:text='@{userAlbum.title}'
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+       <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{String.valueOf(userAlbum.id)}' />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{userAlbum.title}' />-->
+
+    </LinearLayout>
+
+</layout>
